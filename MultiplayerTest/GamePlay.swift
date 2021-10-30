@@ -1,31 +1,38 @@
 //
-//  GameScene.swift
+//  GamePlay.swift
 //  MultiplayerTest
 //
 //  Created by Linder Hassinger on 30/10/21.
 //
 
 import SpriteKit
+import Foundation
 import GameplayKit
+import MultipeerConnectivity
 
-class GameScene: ConnectedScene {
+class GamePlay: ConnectedScene {
     
-    var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    var dados = 0
-    var oponente = 0
-    var negociacion = 0
+    public var turn = false
     
     override func didMove(to view: SKView) {
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate.mpcHandler.scene = self
-        label = SKLabelNode(text: "Esperando...")
-        label?.fontSize = 70
+        self.turn = appDelegate.mpcHandler.turn
+        let label = SKLabelNode(text: "Turno")
         
-        self.addChild(label!)
+        label.text = "Segundo"
+        
+        if self.turn {
+            label.text = "Primero"
+        }
+        
+        print(label)
+        label.fontSize = 70
+        self.addChild(label)
     }
-
-    func touchDown(atPoint pos : CGPoint) {
+    
+    func touchDown(atPoint pos: CGPoint) {
+        // Esta funcion envia las coordenadas del click
         appDelegate.mpcHandler.sendData(data: "\(pos.x),\(pos.y)")
     }
     
@@ -38,7 +45,6 @@ class GameScene: ConnectedScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         for touch in touches {
             self.touchDown(atPoint: touch.location(in: self))
         }
@@ -64,28 +70,24 @@ class GameScene: ConnectedScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if negociacion == 2 {
-            var first = false
-            first = dados > oponente // bool
-            appDelegate.mpcHandler.turn = first
-            let gamePlay = SKScene(fileNamed: "GamePlay")!
-            let transition = SKTransition.fade(withDuration: 1)
-            self.view?.presentScene(gamePlay, transition: transition)
-        }
+        // Called before each frame is rendered
     }
     
+//    Vamos a pintar la informacion que recibimos
     override func reciveData(data: String) {
-        let recivedData = Int(data)
+        let touch = SKShapeNode(circleOfRadius: 10.0)
         
-        if recivedData == 200 {
-            // Esto seria la data que yo envio
-            dados = Int.random(in: 1..<7)
-            appDelegate.mpcHandler.sendData(data: "\(dados)")
-            negociacion += 1
-        } else {
-            // Esto seria la data que yo recibo
-            oponente = recivedData!
-            negociacion += 1
+        if data != "Hola" {
+            let pos = data.components(separatedBy: ",")
+            touch.position.x = convertCGFloat(number: pos[0])
+            touch.position.y = convertCGFloat(number: pos[1])
+            self.addChild(touch)
         }
+        
     }
+    
+    func convertCGFloat(number: String) -> CGFloat {
+        return CGFloat(Double(number)!)
+    }
+    
 }

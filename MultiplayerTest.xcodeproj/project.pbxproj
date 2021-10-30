@@ -18,6 +18,10 @@
 		B0EB675F272D85C5004D4459 /* MultiplayerTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB675E272D85C5004D4459 /* MultiplayerTestTests.swift */; };
 		B0EB6769272D85C5004D4459 /* MultiplayerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB6768272D85C5004D4459 /* MultiplayerTestUITests.swift */; };
 		B0EB676B272D85C5004D4459 /* MultiplayerTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB676A272D85C5004D4459 /* MultiplayerTestUITestsLaunchTests.swift */; };
+		B0EB6778272D87DD004D4459 /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB6777272D87DD004D4459 /* MPCHandler.swift */; };
+		B0EB677A272D8D59004D4459 /* ConnectedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB6779272D8D59004D4459 /* ConnectedScene.swift */; };
+		B0EB6780272D9FA5004D4459 /* GamePlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B0EB677F272D9FA5004D4459 /* GamePlay.sks */; };
+		B0EB6782272D9FB5004D4459 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EB6781272D9FB5004D4459 /* GamePlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		B0EB6764272D85C5004D4459 /* MultiplayerTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplayerTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EB6768272D85C5004D4459 /* MultiplayerTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerTestUITests.swift; sourceTree = "<group>"; };
 		B0EB676A272D85C5004D4459 /* MultiplayerTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B0EB6777272D87DD004D4459 /* MPCHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
+		B0EB6779272D8D59004D4459 /* ConnectedScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedScene.swift; sourceTree = "<group>"; };
+		B0EB677F272D9FA5004D4459 /* GamePlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GamePlay.sks; sourceTree = "<group>"; };
+		B0EB6781272D9FB5004D4459 /* GamePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +113,15 @@
 				B0EB6744272D85C2004D4459 /* AppDelegate.swift */,
 				B0EB6746272D85C2004D4459 /* GameScene.sks */,
 				B0EB6748272D85C2004D4459 /* Actions.sks */,
+				B0EB677F272D9FA5004D4459 /* GamePlay.sks */,
 				B0EB674A272D85C2004D4459 /* GameScene.swift */,
+				B0EB6781272D9FB5004D4459 /* GamePlay.swift */,
 				B0EB674C272D85C2004D4459 /* GameViewController.swift */,
 				B0EB674E272D85C2004D4459 /* Main.storyboard */,
 				B0EB6751272D85C5004D4459 /* Assets.xcassets */,
 				B0EB6753272D85C5004D4459 /* LaunchScreen.storyboard */,
+				B0EB6777272D87DD004D4459 /* MPCHandler.swift */,
+				B0EB6779272D8D59004D4459 /* ConnectedScene.swift */,
 			);
 			path = MultiplayerTest;
 			sourceTree = "<group>";
@@ -235,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0EB6780272D9FA5004D4459 /* GamePlay.sks in Resources */,
 				B0EB6750272D85C2004D4459 /* Main.storyboard in Resources */,
 				B0EB6747272D85C2004D4459 /* GameScene.sks in Resources */,
 				B0EB6752272D85C5004D4459 /* Assets.xcassets in Resources */,
@@ -265,8 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0EB674B272D85C2004D4459 /* GameScene.swift in Sources */,
+				B0EB6778272D87DD004D4459 /* MPCHandler.swift in Sources */,
+				B0EB677A272D8D59004D4459 /* ConnectedScene.swift in Sources */,
 				B0EB674D272D85C2004D4459 /* GameViewController.swift in Sources */,
 				B0EB6745272D85C2004D4459 /* AppDelegate.swift in Sources */,
+				B0EB6782272D9FB5004D4459 /* GamePlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
